@@ -20,9 +20,3 @@ class Blueprint:
 
     def exit_state(self):
       self.base_class.state_stack.pop()
-
-    def user_settings(self):
-        pass
-
-    def make_screenshot(self, actions, delta_time):
-        pass

@@ -1,0 +1,34 @@
+<MessageScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: dp(10)
+        spacing: dp(10)
+        size_hint_y: None
+        height: self.minimum_height
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        MDLabel:
+            text: "HELLO WORLD!" # root.message
+            theme_text_color: 'Primary'
+            halign: 'center'
+            valign: 'middle'
+            font_style: 'Body1'
+            text_color: app.theme_cls.primary_color
+            markup: True
+            size_hint_y: None
+            height: self.texture_size[1]
+        MDRaisedButton:
+            text: "HELLO WORLD!" #root.button_text
+            # on_release: root.callback()
+            size_hint: None, None
+            size: 3 * dp(48), dp(48)
+            opposite_colors: True
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            elevation: 8
+            text_color: app.theme_cls.primary_color
+            font_style: 'Caption'
+            valign: 'middle'
+            halign: 'center'
+            text_size: 20 # self.width - dp(24), None
+            # height: self.texture_size[1]
+            size_hint_y: None
+            # width: self.texture_size[0]
