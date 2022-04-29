@@ -1,34 +1,56 @@
-<MessageScreen>:
+<FrontPage>:
+    # login, register, about, help, contact, search
+    FitImage:
+        id: bg_image
+        source: 'images/mine_entrance.jpg'
+        #allow_stretch: False
+        #keep_ratio: True
+    
     MDBoxLayout:
+        id: box
         orientation: 'vertical'
         padding: dp(10)
         spacing: dp(10)
         size_hint_y: None
         height: self.minimum_height
-        pos_hint: {'center_x': .5, 'center_y': .5}
-        MDLabel:
-            text: "HELLO WORLD!" # root.message
-            theme_text_color: 'Primary'
-            halign: 'center'
-            valign: 'middle'
-            font_style: 'Body1'
-            text_color: app.theme_cls.primary_color
-            markup: True
+        pos_hint: {'right': 1, 'top': 1}
+        MDIconButton:
+            icon: 'cog'
+            user_font_size: '48sp'
+            theme_icon_color: "Custom"
+            theme_icon_color: [1, 0, 0, 1]
+            icon_color: [1, 0, 0, 1]
+            md_bg_color: app.theme_cls.accent_color
+            on_release: root.default_on_action()
+
+        Widget:
+            size_hint: .5, None
+            height: self.width
+            radius: self.height / 2
+            md_bg_color: app.theme_cls.primary_color
+        
+        MDFillRoundFlatButton:
+            text: "START MINING"
+            font_style: 'H5'
+            md_bg_color: app.theme_cls.primary_color
+            text_color: app.theme_cls.accent_color
             size_hint_y: None
-            height: self.texture_size[1]
-        MDRaisedButton:
-            text: "HELLO WORLD!" #root.button_text
-            # on_release: root.callback()
-            size_hint: None, None
-            size: 3 * dp(48), dp(48)
-            opposite_colors: True
-            pos_hint: {'center_x': .5, 'center_y': .5}
-            elevation: 8
-            text_color: app.theme_cls.primary_color
-            font_style: 'Caption'
-            valign: 'middle'
-            halign: 'center'
-            text_size: 20 # self.width - dp(24), None
-            # height: self.texture_size[1]
-            size_hint_y: None
-            # width: self.texture_size[0]
+            size_hint_x: None
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            rounded_button: True
+            on_release: app.change_screen('stages')    # go to next page
+
+    MDBottomAppBar:
+
+        MDToolbar:
+            title: "Progressive Mining"
+            icon: "git"
+            icon_color: app.theme_cls.accent_color
+            type: "bottom"
+            left_action_items: [["menu", lambda x: root.invite_friends()]]
+            md_bg_color: app.theme_cls.accent_color
+            specific_text_color: app.theme_cls.accent_color
+            elevation: 10
+            mode: "end" # free-end, free-center, end, center
+            on_action_button: root.callback(self.icon) # open power-up menu
+        

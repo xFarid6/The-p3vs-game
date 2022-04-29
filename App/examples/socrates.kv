@@ -1,0 +1,619 @@
+ScreenManager:
+    LoadingWindow:
+    MainPage:
+    PhilosophyPage:
+    EconomicsPage:
+    PoliticsPage:
+    ClimatePage:
+    TechPage:
+    ConversationStarters:
+    SingleTopicWindow:
+    SavedTopics:
+    SettingsPage:
+    AccountPage:
+    SearchPage:
+
+<LoadingWindow>:
+    name: "loading"
+    Image:
+        source: 'media/empire-of-light.jpg'
+        allow_stretch: True
+        keep_ratio: False
+        on_touch_up: app.root.current="main"
+
+    MDRectangleFlatIconButton:
+        text: "Click to Start"
+        icon: "language-python"
+        line_color: 0, 0, 0, 0
+        pos_hint: {"center_x": .5, "center_y": .5}
+        on_release: app.root.current="main"
+
+<MainPage>:
+    name: "main"
+
+    Image:
+        source: 'media/empire-of-light.jpg'
+        allow_stretch: True
+        keep_ratio: False
+
+    MDBoxLayout:
+        # adaptive_height: True
+        # adaptive_width: True
+        # md_bg_color: app.theme_cls.primary_color
+        orientation: 'vertical'
+
+        MDNavigationLayout:
+            ScreenManager:
+
+                MDScreen:
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        spacing: 10
+
+                        MDToolbar:
+                            title: "Socrates"
+                            elevation: 10
+                            left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+
+                        #ActionButtons:
+
+                        MDBoxLayout:
+                            spacing: 10
+                            orientation: "vertical"
+                            adaptive_height: True
+                            MDCard:
+                                orientation: "vertical"
+                                padding: "8dp"
+                                size_hint: None, None
+                                size: "290dp", "65dp"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                #border_radius: 20
+                                radius: [10,10,10,10]
+                                focus_behavior: True
+                                ripple_behavior: True
+                                #background image, background color, sono proprietà che esistono credo
+                                on_release: root.manager.current="filosofia"
+                                MDLabel:
+                                    text: "FILOSOFIA"
+                                    theme_text_color: "Secondary"
+                                MDSeparator:
+                                    height: "1dp"
+                            MDCard:
+                                orientation: "vertical"
+                                padding: "8dp"
+                                size_hint: None, None
+                                size: "290dp", "65dp"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                focus_behavior: True
+                                ripple_behavior: True
+                                radius: [10,10,10,10]
+                                #background image, background color, sono proprietà che esistono credo
+                                on_release: root.manager.current="economic"
+                                MDLabel:
+                                    text: "ECONOMIA"
+                                    theme_text_color: "Secondary"
+                                MDSeparator:
+                                    height: "1dp"
+                            MDCard:
+                                orientation: "vertical"
+                                padding: "8dp"
+                                size_hint: None, None
+                                size: "290dp", "65dp"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                focus_behavior: True
+                                ripple_behavior: True
+                                radius: [10,10,10,10]
+                                #background image, background color, sono proprietà che esistono credo
+                                on_release: root.manager.current="politica"
+                                MDLabel:
+                                    text: "POLITICA"
+                                    theme_text_color: "Secondary"
+                                MDSeparator:
+                                    height: "1dp"
+                            MDCard:
+                                orientation: "vertical"
+                                padding: "8dp"
+                                size_hint: None, None
+                                size: "290dp", "65dp"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                focus_behavior: True
+                                ripple_behavior: True
+                                radius: [10,10,10,10]
+                                #background image, background color, sono proprietà che esistono credo
+                                on_release: root.manager.current="climate"
+                                MDLabel:
+                                    text: "CLIMA"
+                                    theme_text_color: "Secondary"
+                                MDSeparator:
+                                    height: "1dp"
+                            MDCard:
+                                orientation: "vertical"
+                                padding: "8dp"
+                                size_hint: None, None
+                                size: "290dp", "65dp"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                # md_bg_color: app.theme_cls.accent_color   # TODO: VERY IMPORTANT LINE HERE
+                                focus_behavior: True
+                                ripple_behavior: True
+                                radius: [10,10,10,10]
+                                #background image, background color, sono proprietà che esistono credo
+                                on_release: root.manager.current="tech"
+                                MDLabel:
+                                    text: "TECNOLOGIA"
+                                    theme_text_color: "Secondary"
+                                MDSeparator:
+                                    height: "1dp"
+                            MDCard:
+                                orientation: "vertical"
+                                padding: "8dp"
+                                size_hint: None, None
+                                size: "290dp", "65dp"
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                focus_behavior: True
+                                ripple_behavior: True
+                                radius: [10,10,10,10]
+                                #background image, background color, sono proprietà che esistono credo
+                                on_release: root.manager.current="doiknowyou"
+                                MDLabel:
+                                    text: "SPUNTI DI CONVERSAZIONE"
+                                    theme_text_color: "Secondary"
+                                MDSeparator:
+                                    height: "1dp"
+                        Widget:
+
+            MDNavigationDrawer:
+                id: nav_drawer
+
+                ContentNavigationDrawer:
+                    orientation: 'vertical'
+                    # adaptive_height: True
+                    spacing: '8dp'
+                    padding: '8dp'
+
+                    AnchorLayout:
+                        anchor_x: "left"
+                        size_hint_y: None
+                        height: logo.height
+                        Image:
+                            id: logo
+                            size_hint: None, None
+                            size: '56dp', '56dp'
+                            source: 'media/surtr-mudrock.PNG'
+                    MDLabel:
+                        text: "Socrates Menu"
+                        font_style: "Button"
+                        font_size: 20
+                        #font_name: "TimesNewRoman"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    ScrollView:
+                        MDList:
+                            OneLineIconListItem:
+                                text: 'Ricerca argomento'
+                                on_release: root.manager.current="searchpage"
+                                IconLeftWidget:
+                                    icon: 'text-search' # many are pre installed
+                                    on_release: root.manager.current="searchpage"
+                            OneLineIconListItem:
+                                text: "Account"
+                                on_release: root.manager.current="accountpage"
+                                IconLeftWidget:
+                                    icon: "account"
+                                    on_release: root.manager.current="accountpage"
+                            OneLineIconListItem:
+                                text: "Impostazioni"
+                                on_release: root.manager.current="settingspage"
+                                IconLeftWidget:
+                                    icon: "cog"
+                                    on_release: root.manager.current="settingspage"
+                            TwoLineIconListItem:
+                                text: "Argomenti salvati"
+                                secondary_text: "Lista argomenti salvati"
+                                on_release: root.manager.current="savedtopics"
+                                IconLeftWidget:
+                                    icon: "bookmark-multiple"
+                            TwoLineIconListItem:
+                                text: "Togli la pubblicità"
+                                secondary_text: "scherzo non ce n'è"
+                                IconLeftWidget:
+                                    icon: "newspaper"
+                            TwoLineIconListItem:
+                                text: "Contatta gli sviluppatori"
+                                secondary_text: "Proponi spunti e nuovi argomenti"
+                                on_release: root.pasteMail()
+                                IconLeftWidget:
+                                    icon: "contacts-outline"
+
+<PhilosophyPage>:
+    name: "filosofia"
+    FitImage:
+        source: 'media/scuola-di-atene.jpg'
+        allow_stretch: True
+        keep_ratio: False
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        title: "FILOSOFIA"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+                    #ActionButtons:
+                    ScrollView:
+                        MDList:
+                            id: container
+
+
+
+        #MDNavigationDrawer:
+            #ContentNavigationDrawer:
+
+<EconomicsPage>:
+    name: "economic"
+    FitImage:
+        source: 'media/economics.jpg'
+        allow_stretch: True
+        keep_ratio: False
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        title: "ECONOMIA"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+                    #ActionButtons:
+                    ScrollView:
+                        MDList:
+                            id: container
+
+
+
+        #MDNavigationDrawer:
+            #ContentNavigationDrawer:
+
+<PoliticsPage>:
+    name: "politica"
+    FitImage:
+        source: 'media/european-parliament.jpg'
+        allow_stretch: True
+        keep_ratio: True
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        title: "POLITICA"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+                    #ActionButtons:
+                    ScrollView:
+                        MDList:
+                            id: container
+
+
+
+        #MDNavigationDrawer:
+            #ContentNavigationDrawer:
+
+<ClimatePage>:
+    name: "climate"
+    FitImage:
+        source: 'media/climate.jpg'
+        allow_stretch: True
+        keep_ratio: True
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        title: "CLIMA"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+                    #ActionButtons:
+                    ScrollView:
+                        MDList:
+                            id: container
+
+
+
+        #MDNavigationDrawer:
+            #ContentNavigationDrawer:
+
+<TechPage>:
+    name: "tech"
+    FitImage:
+        source: 'media/tech.jpg'
+        allow_stretch: True
+        keep_ratio: True
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        title: "TECNOLOGIA"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+                    #ActionButtons:
+                    ScrollView:
+                        MDList:
+                            id: container
+
+
+
+        #MDNavigationDrawer:
+            #ContentNavigationDrawer:
+
+<ConversationStarters>:
+    name: "doiknowyou"
+    FitImage:
+        source: 'media/conversation_starters.jpg'
+        allow_stretch: True
+        keep_ratio: True
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        title: "SPUNTI GENERALI"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+                    #ActionButtons:
+                    ScrollView:
+                        MDList:
+                            id: container
+
+
+
+        #MDNavigationDrawer:
+            #ContentNavigationDrawer:
+
+<SingleTopicWindow>:
+    name: "singletopic"
+    FitImage:
+        source: 'media/neutralv2.jpg'
+        allow_stretch: True
+        keep_ratio: True
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        id: titlespace
+                        title: "Space for the title"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+                    #ActionButtons:
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        adaptive_height: True
+                        md_bg_color: 0.224, 0.224, 0.224, 0.7
+
+                        MDIconButton:
+                            id: iconbutton
+                            icon: "bookmark-outline"
+                            theme_text_color: "Custom"
+                            pos_hint: {'x': .2, 'y': .01}
+                            user_font_size: "20sp"
+                            on_release: root.changeIcon()
+
+                    ScrollView:
+                        MDLabel:
+                            id: contentspace
+                            text: "put here the content"
+                            md_bg_color: .224, 0.224, 0.224, 0.8
+                    MDCard:
+                        orientation: "vertical"
+                        padding: "8dp"
+                        size_hint: None, None
+                        size: "320dp", "70dp"
+
+                        MDLabel:
+                            text: "Domande"
+                            text_size: "40"
+                            theme_text_color: "Secondary"
+                            #adaptive_height: True
+                        MDSeparator:
+                            height: "1dp"
+                    ScrollView:
+                        MDLabel:
+                            id: questionspace
+                            text: "content form question lists"
+                            md_bg_color: .224, 0.224, 0.224, 0.8
+
+<SavedTopics>:
+    name: "savedtopics"
+    FitImage:
+        source: 'media/bookmarked.png'
+        allow_stretch: True
+        keep_ratio: True
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        id: saved_topics_bar
+                        title: "Argomenti Salvati"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+
+                    MDBoxLayout:
+
+                        orientation: 'vertical'
+                        spacing: dp(10)
+                        padding: dp(20)
+                        md_bg_color: .224, 0.224, 0.224, 0.1
+                        MDLabel:
+                            text: "Potresti dover refreshare per vederli tutti"
+                            adaptive_height: True
+                        ScrollView:
+                            MDList:
+                                id: listofsaves
+
+                Widget:
+
+<SettingsPage>:
+    name: "settingspage"
+    FitImage:
+        source: 'media/settings.jpg'
+        allow_stretch: False
+        keep_ratio: False
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        id: settingspage_bar
+                        title: "IMPOSTAZIONI"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+
+                    MDBoxLayout:
+
+                        orientation: 'vertical'
+                        spacing: dp(10)
+                        padding: dp(20)
+                        md_bg_color: .224, 0.224, 0.224, 0.1
+
+                        MDCard:
+                            orientation: "vertical"
+                            padding: "8dp"
+                            size_hint: None, None
+                            size: "290dp", "65dp"
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            #border_radius: 20
+                            radius: [10,10,10,10]
+                            focus_behavior: True
+                            ripple_behavior: True
+                            #background image, background color, sono proprietà che esistono credo
+                            on_release: app.show_theme_picker()
+                            MDLabel:
+                                text: "Scegli un tema!"
+                                theme_text_color: "Secondary"
+                            MDSeparator:
+                                height: "1dp"
+
+<AccountPage>:
+    name: "accountpage"
+    FitImage:
+        source: 'media/accountpic.jpg'
+        allow_stretch: True
+        keep_ratio: True
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        id: accountpage_bar
+                        title: "CREA UN ACCOUNT" if root.first_time_enter else "ACCOUNT"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+
+                    GridLayout:
+                        id: accountlayout
+                        cols: 2
+                        rows: 4
+                        spacing: dp(10)
+                        padding: dp(10)
+                        size_hint: 1, None
+                    FloatLayout:
+                        id: floatspace
+
+                    Widget:
+                        id: widget
+
+<SearchPage>:
+    name: "searchpage"
+    FitImage:
+        source: 'media/settings.jpg'
+        allow_stretch: False
+        keep_ratio: False
+
+    Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(10)
+
+                    MDToolbar:
+                        id: searchpage_bar
+                        title: "CERCA ARGOMENTO"
+                        elevation: 10
+                        left_action_items: [["arrow-left-bold", lambda x: root.changeScreen()]]
+
+                    MDBoxLayout:
+                        adaptive_height: True
+
+                        MDIconButton:
+                            icon: 'magnify'
+
+                        MDTextField:
+                            id: search_field
+                            hint_text: 'Search topic'
+                            on_text: root.set_list_md_icons(self.text, True)
+
+                    RecycleView:
+                        id: rv
+                        key_viewclass: 'viewclass'
+                        key_size: 'height'
+
+                        RecycleBoxLayout:
+                            padding: dp(10)
+                            default_size: None, dp(48)
+                            default_size_hint: 1, None
+                            size_hint_y: None
+                            height: self.minimum_height
+                            orientation: 'vertical'

@@ -1,0 +1,32 @@
+<MessageScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: app.theme_cls.bg_normal
+        MDToolbar:
+            id: toolbar
+            height: dp(56)
+            title: 'Toolbar'
+            right_action_items: [['dots-vertical', lambda x: None]]
+            margin: 0
+        ScrollView: 
+            do_scroll_x: False
+            do_scroll_y: True
+            effect_cls: 'ScrollEffect' # Prevents the user from scrolling to see waht is behind the scrollview
+            bar_width: dp(4)
+            MDBoxLayout:
+                adaptive_height: True
+                orientation: 'vertical'
+                md_bg_color: app.theme_cls.primary_color
+                spacing: dp(10)
+                MDBoxLayout:
+                    height: dp(100)
+                    size_hint_y: None
+                    ScrollView: 
+                        do_scroll_y: False
+                        bar_width: dp(4)
+                        MDBoxLayout:
+                            id: box_layout
+                            orientation: 'vertical'
+                            adaptive_width: True
+                            spacing: dp(10)
+                            padding: [10, 0, 0, 0]
