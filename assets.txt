@@ -4,3 +4,8 @@ https://pixelprospector.com/
 
 Great Great tileset of mage-like world
 http://www.lorestrome.com/pixel_archive/main.htm
+
+
+Useful documentation links:
+https://doc.mapeditor.org/en/stable/manual/editing-tile-layers/
+https://stackoverflow.com/questions/54703674/how-do-i-make-my-numpy-image-take-an-alpha-channel-value-in-python

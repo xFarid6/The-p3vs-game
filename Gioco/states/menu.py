@@ -33,7 +33,7 @@ class Menu(Blueprint):
 
         self.fox: Spritesheet = Spritesheet(os.path.join(os.path.dirname(__file__), '../player/Fox Sprite Sheet.png'))
         self.fox_actions: Dict[str, List[pygame.Surface]] = self.fox.load_anims(size=32, 
-            anim_names={'tail_wiggle', 'look_back', 'run', 'jump', 'scared', 'sleep', 'sit'},
+            anim_names=['tail_wiggle', 'look_back', 'run', 'jump', 'scared', 'sleep', 'sit'],
             frames=[5, 14, 8, 11, 5, 6, 7])
         self.tw_i: float = 0.0
         self.anim_names: List[str] = ['tail_wiggle', 'look_back', 'run', 'jump', 'scared', 'sleep', 'sit']

@@ -29,7 +29,7 @@ class Title(Blueprint):
         :param delta_time: The time in seconds since the last update
         :param actions: a list of actions that the player has performed
         """
-        self.progress_fac += 2 # 0.01
+        self.progress_fac += 0.01 # 0.01
         if self.progress_fac > 1:
             self.progress_fac = 1
 
