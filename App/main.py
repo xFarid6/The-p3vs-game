@@ -19,8 +19,54 @@ Window.size = (400, 640) # (360, 600)
 Builder.load_file('kvs/stages.kv')
 
 
-class Stages(MDBoxLayout):
+class Stages(Screen):
     '''A screen that display the stages.'''
+    def __init__(self, **kwargs):
+        super(Stages, self).__init__(**kwargs)
+        self.orientation = 'vertical'
+        self.padding = [10, 10, 10, 10]
+        self.spacing = 10
+        self.size_hint_y = None
+        self.height = Window.height - self.padding[1] - self.padding[3] - self.spacing
+        self.stages = []
+        self.add_stages()
+
+    def add_stages(self):
+        '''Add stages to the screen.'''
+        for stage in self.stages:
+            self.add_widget(stage)
+
+    def on_touch_up(self, touch):
+        '''Check if the user clicked on a stage.'''
+        print('Stage clicked.')
+        stage = get_current_item(self.stages, touch)
+        print(*touch.pos)
+
+    
+class Stage(MDCard):
+    '''A stage.'''
+    def __init__(self, **kwargs):
+        super(Stage, self).__init__(**kwargs)
+        self.orientation = 'vertical'
+        self.padding = [10, 10, 10, 10]
+        self.spacing = 10
+        self.size_hint_y = None
+        self.height = Window.height - self.padding[1] - self.padding[3] - self.spacing
+        # self.add_widgets()
+
+    def add_widgets(self):
+        '''Add widgets to the stage.'''
+        self.add_widget(StageTitle())
+        self.add_widget(StageContent())
+        self.add_widget(StageActions())
+
+    
+class StageTitle(RelativeLayout):
+    '''A title of the stage.'''
+
+
+class StageTitleIcon(RelativeLayout):
+    '''An icon of the stage.'''
 
 
 class FrontPage(Screen):
@@ -61,7 +107,7 @@ class MainApp(MDApp):
         # Storing the screens in a list
         self.screens = [
             FrontPage(name="front_page"),
-            #Stages(name="stages"),
+            Stages(name="stages"),
         ]
         
         # Creating the screen manager,and setting the animation type to "fadetransition"
@@ -85,4 +131,5 @@ class MainApp(MDApp):
 
 
 if __name__ == "__main__":
-    MainApp().run()
+    main = MainApp()
+    main.run()

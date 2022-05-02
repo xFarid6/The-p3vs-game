@@ -1,4 +1,48 @@
+<MySwiper@MDSwiperItem>
+    # on_swipe: print("on_swipe")
+    # on_pre_swipe: print("on_pre_swipe")
+    # on_overswipe_right: print("on_overswipe_right")
+    # on_overswipe_left: print("on_overswipe_left")
+    # on_swipe_left: print("on_swipe_left")
+    # on_swipe_right: print("on_swipe_right")
+    on_touch_up: root.on_touch_up(touch)
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        FitImage:
+            source: "images/accountpic.jpg"
+            radius: [20, 20, 0, 0]
+        MDCard:
+            size_hint_y: None
+            height: dp(200)
+            padding: dp(10)
+            MDLabel:
+                text: "John Doe"
+                font_style: 'H6'
+                theme_text_color: 'Primary'
+                halign: 'center'
+                valign: 'middle'
+            MDLabel:
+                text: "Stage 1"
+
 <Stages>:
-    MDLabel:
-        text: "Hello, World!"
-        font: "Helvetica"
+    MDToolbar:
+        id: toolbar
+        title: "Stages"
+        elevation: 10
+        pos_hint: {"top": 1}
+
+    MDSwiper:
+        size_hint_y: None
+        height: root.height - toolbar.height - dp(40)
+        y: root.height - self.height - toolbar.height - dp(20)
+
+        MySwiper:
+
+        MySwiper:
+
+        MySwiper:
+
+        MySwiper:
+
+        MySwiper:
