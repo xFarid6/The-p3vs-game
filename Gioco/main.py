@@ -5,7 +5,7 @@ import time
 
 from typing import Dict, List, TypeVar
 from pygame.locals import *
-from settings import *
+from states.settings import *
 from states.blueprint import Blueprint
 from states.title import Title
 

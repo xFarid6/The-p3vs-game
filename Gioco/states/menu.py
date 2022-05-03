@@ -3,8 +3,9 @@ import time
 import os
 from states.blueprint import Blueprint
 from states.load_spritesheet import Spritesheet
-from settings import *
+from states.settings import *
 from typing import TypeVar, List, Dict
+from states.dungeon import Dungeon
 
 main_class_ref = TypeVar("reference to class in main")
 
@@ -63,6 +64,9 @@ class Menu(Blueprint):
             self.swap += 1
             self.tw_i = 0
             actions['space'] = False
+
+            self.dungeon = Dungeon(self.base_class)
+            self.dungeon.enter_state()
             
 
     def render(self, surface: pygame.Surface) -> None:

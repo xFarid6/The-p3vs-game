@@ -2,7 +2,7 @@ import pygame
 import time
 from states.blueprint import Blueprint
 from states.menu import Menu
-from settings import *
+from states.settings import *
 from typing import TypeVar, Dict
 
 main_class_ref = TypeVar("reference to class in main")

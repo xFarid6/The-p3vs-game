@@ -1,6 +1,16 @@
 import pygame, sys
 from csv import reader
 
+# load graphics as whatever, cut them the same way you did in tiled
+# list them so an enumerate over them returns the same index as in tiled
+# iterate over the csvs 
+# at every index: if index is tile:
+# create Tile() obj, essentially group together the graphic and the position of it
+# add it to the deserved groups of tiles (visible, invisible, collideable, etc)
+
+# then move them with the player passing his movement at the .update() function
+# then render them with the .draw() method
+
 
 def import_csv_layout_gc(filename):
     """
