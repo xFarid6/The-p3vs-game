@@ -31,9 +31,9 @@ class TheProgressExploration:
         self.font: Font = pygame.font.SysFont("monospace", 30)
         self.running, self.playing = True, True
         self.actions: Dict[str, bool] = {'left': False, 'right': False,
-                        'up': False, 'down': False,
-                        'space': False, 'enter': False,
-                        }
+                                        'up': False, 'down': False,
+                                        'space': False, 'enter': False,
+                                        }
 
         self.dt, self.prev_time = 0, 0
         self.state_stack: List[object] = []
@@ -54,10 +54,21 @@ class TheProgressExploration:
             if event.type == pygame.QUIT:
                 self.running = False
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    self.running = False
-                elif event.key == K_SPACE:
-                    actions['space'] = True
+                if event.key == pygame.K_ESCAPE: self.running = False
+                elif event.key == K_SPACE: actions['space'] = True
+                elif event.key == K_RETURN: actions['enter'] = True
+                elif event.key == K_LEFT: actions['left'] = True
+                elif event.key == K_RIGHT: actions['right'] = True
+                elif event.key == K_UP: actions['up'] = True
+                elif event.key == K_DOWN: actions['down'] = True
+            elif event.type == pygame.KEYUP:
+                if event.key == K_SPACE: actions['space'] = False
+                elif event.key == K_RETURN: actions['enter'] = False
+                elif event.key == K_LEFT: actions['left'] = False
+                elif event.key == K_RIGHT: actions['right'] = False
+                elif event.key == K_UP: actions['up'] = False
+                elif event.key == K_DOWN: actions['down'] = False
+                
 
 
     def get_dt(self) -> None:
