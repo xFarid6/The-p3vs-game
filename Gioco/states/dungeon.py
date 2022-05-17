@@ -55,3 +55,4 @@ class Dungeon(Blueprint):
     def render(self, surface: pygame.Surface) -> None:
         for group in self.level_groups.values():
             group.draw(surface)
+            

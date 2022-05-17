@@ -55,19 +55,19 @@ class TheProgressExploration:
                 self.running = False
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE: self.running = False
-                elif event.key == K_SPACE: actions['space'] = True
-                elif event.key == K_RETURN: actions['enter'] = True
-                elif event.key == K_LEFT: actions['left'] = True
-                elif event.key == K_RIGHT: actions['right'] = True
-                elif event.key == K_UP: actions['up'] = True
-                elif event.key == K_DOWN: actions['down'] = True
+                if event.key == K_SPACE: actions['space'] = True
+                if event.key == K_RETURN: actions['enter'] = True
+                if event.key == K_LEFT: actions['left'] = True
+                if event.key == K_RIGHT: actions['right'] = True
+                if event.key == K_UP: actions['up'] = True
+                if event.key == K_DOWN: actions['down'] = True
             elif event.type == pygame.KEYUP:
                 if event.key == K_SPACE: actions['space'] = False
-                elif event.key == K_RETURN: actions['enter'] = False
-                elif event.key == K_LEFT: actions['left'] = False
-                elif event.key == K_RIGHT: actions['right'] = False
-                elif event.key == K_UP: actions['up'] = False
-                elif event.key == K_DOWN: actions['down'] = False
+                if event.key == K_RETURN: actions['enter'] = False
+                if event.key == K_LEFT: actions['left'] = False
+                if event.key == K_RIGHT: actions['right'] = False
+                if event.key == K_UP: actions['up'] = False
+                if event.key == K_DOWN: actions['down'] = False
                 
 
 

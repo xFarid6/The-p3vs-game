@@ -82,6 +82,7 @@ class Tile(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.Surface([size, size])
         self.rect = self.image.get_rect(topleft = (x, y))
+        self.hit_box = self.rect.inflate(0, -10)
         
         self.image.fill('orange')
 
