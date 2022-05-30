@@ -68,6 +68,15 @@ class FlappyBird:
             self.update()
             self.draw()
 
+    
+    def get_distance_from_pipe(self):
+        pass
+
+
+    def play_step(self, move):
+        if move:
+            self.bird.jump()
+
 
 class Bird:
     def __init__(self, x, y, width, height):
