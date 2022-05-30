@@ -81,7 +81,7 @@ class Agent:
         self.trainer = QTrainer(self.model, lr=LR, gamma=self.gamma)
 
     def get_state(self, game):
-        state = [game.get_distance_from_pipe()]
+        state = [game.get_distances_from_pipe()]
 
         return np.array(state, dtype=int)
 

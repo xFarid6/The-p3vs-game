@@ -69,13 +69,26 @@ class FlappyBird:
             self.draw()
 
     
-    def get_distance_from_pipe(self):
-        pass
+    def get_distances_from_pipe(self):
+        return [1, 2, 3, 4]
+
+
+    def distance(self, a, b):
+        # a and b are point coordinates so we have to add the y coordinate
+        # to the x coordinate to get the distance
+        d_top = abs(a[0] - b[0]) + abs(a[1] - b[1])
+        return d_top
 
 
     def play_step(self, move):
         if move:
             self.bird.jump()
+
+        reward = 1
+        dead = False
+        point = False
+
+        return [reward, dead, point]
 
 
 class Bird:
