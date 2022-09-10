@@ -1,5 +1,4 @@
 import pygame
-import os
 from typing import Dict, Tuple, List
 import pygame
 
